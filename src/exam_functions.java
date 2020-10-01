@@ -7,10 +7,20 @@ public class exam_functions {
         for (Integer integer : median_number) {
             sum += integer;
         }
-        JOptionPane.showMessageDialog(null, "Your median is equal to " + (sum/median_number.size()));
+        JOptionPane.showMessageDialog(null, "Your median is equal to " + (sum / median_number.size()));
         return sum;
     }
 
+    static ArrayList<Integer> extract_dividends(int num) {
+        ArrayList<Integer> dividends = new ArrayList<>();
+        for (int i = 0; i <= num; i++) {
+            if ((num % i) == 0) {
+                dividends.add(i);
+            }
+
+        }
+        return(dividends);
+    }
 
 
 }
