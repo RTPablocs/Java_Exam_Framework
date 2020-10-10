@@ -2,14 +2,13 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class exam_functions {
-    static int calculate_median(ArrayList<Integer> median_number) {
+public class functions {
+    static void calculate_median(ArrayList<Integer> median_number) {
         int sum = 0;
         for (Integer integer : median_number) {
             sum += integer;
         }
         JOptionPane.showMessageDialog(null, "Your median is equal to " + (sum / median_number.size()));
-        return sum;
     }
 
     static ArrayList<Integer> extract_dividends(int num) {
@@ -62,6 +61,7 @@ public class exam_functions {
             num = Integer.parseInt(JOptionPane.showInputDialog(null, "Insert the number"));
             if (num == end_num) {
                 kill_switch = true;
+                System.exit(0);
             }
             result += num;
         }
