@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -10,13 +10,14 @@ class test_functions {
 
     @Test
     void calculate_median() {
-        ArrayList<Integer> test = new ArrayList<>(Arrays.asList(300,240,560,4560,103,569,234,67,10));
+        ArrayList<Integer> test = new ArrayList<>(Arrays.asList(300, 240, 560, 4560, 103, 569, 234, 67, 10));
         functions.calculate_median(test);
     }
 
     @Test
     void extract_dividends() {
-       Assertions.assertThrows(ArithmeticException.class, () -> functions.extract_dividends(567933456));
+        int num = validate.validate_integer();
+        Assertions.assertThrows(ArithmeticException.class, () -> functions.extract_dividends(num));
 
     }
 
@@ -26,21 +27,19 @@ class test_functions {
     }
 
     @Test
-    void multiply_from_even_digits() {
-
+    void validate_integer() {
+        ArrayList<Integer> compare_numbers = new ArrayList<>();
+        int cont = 0;
+        do {
+            int num = validate.validate_integer();
+            compare_numbers.add(num);
+            cont = JOptionPane.showConfirmDialog(null, "Do you want to continue? (Y/N)");
+        } while (cont != 1);
+        functions.compare_numbers(compare_numbers);
     }
 
     @Test
-    void multiply_from_odd_digits() {
-    }
-
-    @Test
-    void sum_before_num() {
-    }
-
-    @Test
-    @DisplayName("It must be an Integer")
-    void validate_int() throws Exception{
-        validate.validate_integer();
+    void validate_char() {
+        validate.validate_character();
     }
 }
