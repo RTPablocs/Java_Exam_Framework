@@ -2,15 +2,18 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class functions {
     static void calculate_median(ArrayList<Integer> median_number) {
-        int sum = 0;
+        float sum = 0;
         for (Integer integer : median_number) {
             sum += integer;
         }
         JOptionPane.showMessageDialog(null, "Your median is equal to " + (sum / median_number.size()));
     }
 
+
+    //Extractors
     static ArrayList<Integer> extract_dividends(int num) {
         ArrayList<Integer> dividends = new ArrayList<>();
         for (int i = 0; i <= num; i++) {
@@ -33,6 +36,7 @@ public class functions {
         return (digits);
     }
 
+    // Multipliers
     static int multiply_from_even_digits(ArrayList<Integer> digits) {
         int product = 1; //Initialized to 1 because the product, and isn't possible to swap variable value
         for (Integer digit : digits) {
@@ -61,11 +65,16 @@ public class functions {
             num = Integer.parseInt(JOptionPane.showInputDialog(null, "Insert the number"));
             if (num == end_num) {
                 kill_switch = true;
-                System.exit(0);
             }
             result += num;
         }
         JOptionPane.showMessageDialog(null, "Result is: " + result);
         return result;
+    }
+
+    // Comparators
+    static void compare_numbers(ArrayList<Integer> compare) {
+        Collections.sort(compare);
+        JOptionPane.showMessageDialog(null,"Lower is: " + compare.get(0) + " Higher is: " + compare.get(compare.size()-1));
     }
 }
